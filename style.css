@@ -18,7 +18,7 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-100%); /* Center horizontally, hide above view initially */
-    width: 80%;
+    width: 20%;
     height: 40px;
     padding: 0.3rem 2rem;
     /* background: rgb(9, 12, 15); */
@@ -32,10 +32,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.8) inset;
     z-index: 999;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 5s ease-in-out;
 }
 
 .navbar.show {
+    width: 80%;
     transform: translateX(-50%) translateY(0); /* Slide into view */
 }
 
