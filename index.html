@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Greeting Card</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+        <div id="navbar" class="navbar">
+            <img src="assets/music-4.jpg" alt="" style="width: 40px; height: 40px; border-radius: 50px;">
+
+
+            <div class="marquee">
+                <div class="marquee-content">
+                    <!-- The JavaScript will populate this with messages -->
+                </div>
+            </div>
+            
+        
+       </div>
+
+
+    <div class="card">
+        <div class="message">
+            <h1 class="xem">For My Special Friend</h1>
+            <p class="zee">You mean the world to me, and I just wanted to make something special for you.</p>
+        </div>
+        <div><button id="revealButton">Open Your Surprise!</button></div>
+        <div class="hiddenMessage"></div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container"></div>
+
+    <!-- Heart Animation Container -->
+    <div id="heartContainer">
+        <div class="heart">
+            ❤️ I love you, Ronah ❤️
+        </div>
+    </div>
+
+    <!-- Volume Slider Container -->
+    <div class="volumeControlWrapper">
+        <div class="volume-slider-container">
+            <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+
+    <!-- Audio Control Buttons with Glassy Container -->
+    <div class="audioControls glassy">
+        <button id="backwardButton"><i class="fas fa-backward"></i></button>
+        <button id="playButton"><i class="fas fa-play"></i></button>
+        <button id="pauseButton"><i class="fas fa-pause"></i></button>
+        <button id="forwardButton"><i class="fas fa-forward"></i></button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="assets/ED SHEERAN PERFECT (instrumental).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

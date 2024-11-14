@@ -1,0 +1,384 @@
+/* Basic Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #040108;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    overflow: hidden;
+    transition: background-color 1s ease;
+}
+
+/* Navbar Styling with Slide-Down Animation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%); /* Center horizontally, hide above view initially */
+    width: 80%;
+    height: 40px;
+    padding: 0.3rem 2rem;
+    /* background: rgb(9, 12, 15); */
+    background: rgba(0, 0, 0, 0.164);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.055);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.8) inset;
+    z-index: 999;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.navbar.show {
+    transform: translateX(-50%) translateY(0); /* Slide into view */
+}
+
+/* Marquee Styling */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    color: #807e37;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: scrollLeft 120s linear infinite;
+}
+
+.text {
+    padding: 0.5rem;
+    display: inline-block;
+    margin-right: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+@keyframes scrollLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Confetti Styling */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #2c2c2c; /* Dark gray color */
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: fall linear infinite;
+    top: -10vh;
+    animation-duration: calc(10s + (5 * random()));
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Glassy Button Container Styling */
+.glassy {
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.048);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.055);
+}
+
+/* Centered Button Container */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 1s ease, transform 1s ease;
+}
+
+/* Popup Messages Styling */
+.popup-message {
+    position: absolute;
+    font-size: 1.2em;
+    color: #807e37;
+    opacity: 0;
+    animation: popupFade 3s ease-in-out forwards;
+}
+
+@keyframes popupFade {
+    0% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* End Screen Styling */
+.end-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    color: #ffeb3b;
+    font-size: 2em;
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Reveal Button Styling */
+#revealButton {
+    background: linear-gradient(45deg, #0a0205, #131313);
+    color: #8d8d8d;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.8s ease, box-shadow 0.5s ease;
+}
+
+#revealButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(36, 36, 36, 0.774);
+}
+
+/* Initial Position for Audio Controls */
+.audioControls {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    transition: top 1s ease, transform 1s ease;
+}
+
+/* Individual Audio Control Buttons */
+.audioControls button {
+    background: rgba(255, 255, 255, 0.041);
+    border: none;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.audioControls button:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.192);
+}
+
+/* Volume Control Wrapper Positioned at Bottom Right */
+.volumeControlWrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 250px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* Volume Slider Track and Thumb Styling */
+#volumeControl {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+#volumeControl::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #7a0234, #3a0124);
+    border-radius: 5px;
+}
+
+#volumeControl::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background: #1a0811;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#volumeControl::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Card Styling */
+.card {
+    width: 90%;
+    max-width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(190deg, #040108, #111111, #2c2c2c);
+    background-size: 500% 500%; /* Ensures smooth movement in the animation */
+    animation: movebck 123s linear infinite; /* Adjust timing for smoother animation */
+    backdrop-filter: blur(6px);
+    color: #505050;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.938);
+    text-align: center;
+    transition: transform 0.5s ease, width 0.5s ease;
+}
+
+/* Larger text styling */
+.xem {
+    font-size: 1.5em;
+}
+
+/* Smaller text styling */
+.zee {
+    font-size: 0.9em;
+}
+
+/* Adjusted keyframes for smoother background movement */
+@keyframes movebck {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 500% 500%;
+    }
+}
+
+
+/* Heart Animation */
+#heartContainer {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart {
+    font-size: 2em;
+    color: #ff4081;
+    animation: heartbeat 1s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        width: 90%;
+        padding: 0.3rem 1.5rem;
+    }
+
+    .audioControls {
+        top: auto;
+        bottom: 10px;
+        transform: none;
+        flex-direction: row;
+        box-shadow: none;
+    }
+
+    .audioControls button {
+        background: rgba(255, 255, 255, 0.041);
+        border: none;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50px;
+        transition: background-color 0.3s;
+    }
+
+    .volumeControlWrapper {
+        bottom: 10px;
+        width: 200px;
+        bottom: 180px;
+        right: -80px;
+        position: fixed;
+        transform: rotate(-90deg);
+    }
+
+    .card {
+        width: 100%;
+        padding: 1em;
+        flex-direction: column;
+    }
+
+    #revealButton {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .navbar {
+        width: 96%;
+        padding: 0.3rem 1rem;
+    }
+
+    .audioControls {
+        position: fixed;
+        bottom: 30px;
+        right: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .volumeControlWrapper {
+        width: 150px;
+        right: -40px;
+        bottom: 180px;
+        position: fixed;
+        transform: rotate(-90deg);
+    }
+
+    #revealButton {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    .text {
+        font-size: 0.8em;
+        margin-right: 50px;
+    }
+}
